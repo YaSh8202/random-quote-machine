@@ -1,0 +1,23 @@
+.container{
+  background-color: white;
+  max-width: 40rem;
+  width: 90%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+}
+
+.container h2{
+  margin-bottom: 0;
+}
+
+.container p{
+  text-align: right;
+  
+}
+
+.container .button-section{
+  display: flex;
+  justify-content: space-between;
+}
