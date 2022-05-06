@@ -3,7 +3,6 @@ import "./App.css";
 import QuoteBox from "./components/QuoteBox";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 
 library.add(faTwitterSquare); 
