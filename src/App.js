@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import QuoteBox from "./components/QuoteBox";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+
+library.add(faTwitterSquare); 
+
+
 function App() {
-  const [randQuote, setRandQuote] = useState("");
+  const [randomQuote, setRandQuote] = useState("");
 
   const [quotes, setQuotes] = useState([]);
 
@@ -27,17 +34,38 @@ function App() {
       author: "Kevin Kruse",
     });
   }, []);
+
   const nextQuoteHandler = () => {
     var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setRandQuote(randomQuote);
+    document.documentElement.style.setProperty(
+      "--main-color",
+      getRandomColor()
+    );
   };
+
+  function getRandomColor() {
+    const availableCharacters = "0123456789ABCDEF";
+    const availableCharacterLength = availableCharacters.length;
+
+    let color = "#";
+
+    for (let i = 0; i < 6; i++) {
+      color +=
+        availableCharacters[
+          Math.floor(Math.random() * availableCharacterLength)
+        ];
+    }
+
+    return color;
+  }
 
   return (
     <div className="App">
       <QuoteBox
         onNext={nextQuoteHandler}
-        quote={randQuote.quote}
-        author={randQuote.author}
+        quote={randomQuote.quote}
+        author={randomQuote.author}
       />
     </div>
   );
